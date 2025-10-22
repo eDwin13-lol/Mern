@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import './PostCard.css';
 
 export const PostCard = ({ post }) => {
   const isReddit = post.source === 'reddit';
   const isYoutube = post.source === 'youtube';
-  const [showFullSize, setShowFullSize] = useState(false);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: false,
+  });
 
   // Extract YouTube video ID from URL
   const getYouTubeVideoId = (url) => {
@@ -19,54 +23,25 @@ export const PostCard = ({ post }) => {
     window.open(post.url, '_blank');
   };
 
-  if (showFullSize && isYoutube && youtubeVideoId) {
-    return (
-      <div className="post-card-fullscreen">
-        <button 
-          className="close-fullscreen"
-          onClick={() => setShowFullSize(false)}
-        >
-          ✕ Close
-        </button>
-        <div className="youtube-embed-fullscreen">
-          <iframe
-            width="100%"
-            height="100%"
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=1`}
-            title={post.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="post-card">
+    <div className="post-card" ref={ref}>
       {/* Video Embed Section */}
       {isYoutube && youtubeVideoId ? (
-        <div 
-          className="post-video-embed"
-          onClick={(e) => {
-            e.stopPropagation();
-            setShowFullSize(true);
-          }}
-        >
+        <div className="post-video-embed">
           <div className="youtube-embed-container">
             <iframe
               width="100%"
               height="100%"
-              src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&modestbranding=1`}
+              src={
+                inView
+                  ? `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=1&modestbranding=1`
+                  : `https://www.youtube.com/embed/${youtubeVideoId}?mute=1&controls=1&modestbranding=1`
+              }
               title={post.title}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div>
-          <div className="expand-overlay">
-            <button className="expand-btn">⛶ Expand</button>
           </div>
         </div>
       ) : post.thumbnail && post.thumbnail !== 'self' ? (
