@@ -5,7 +5,9 @@ A full-stack MERN application that aggregates content from multiple social media
 ## 🎯 Features
 
 - **Infinite Scroll**: Seamlessly load more posts as you scroll
-- **Multi-source Feed**: Aggregate content from multiple social media platforms in one place
+- **Multi-source Feed**: Aggregate content from multiple social media platforms in one place (Reddit, YouTube, TikTok, X)
+- **Unified Video Player**: Built-in video player supporting YouTube embeds, TikTok blockquotes, X/Twitter embeds, and Reddit links
+- **Autoplay on Scroll**: Videos automatically play when they enter the viewport, muted by default
 - **Source Filtering**: Toggle between different sources or view all content
 - **Auto-refresh**: Fetch new content from sources on-demand
 - **Responsive Design**: Mobile-friendly infinite scroll interface
@@ -58,6 +60,8 @@ Mern/
 │   │   ├── api/
 │   │   │   └── postService.js     # API client
 │   │   ├── components/
+│   │   │   ├── VideoPlayer.jsx    # Unified video player component
+│   │   │   ├── VideoPlayer.css    # Player styling
 │   │   │   ├── PostCard.jsx       # Post display component
 │   │   │   └── SourceFilter.jsx   # Filter buttons
 │   │   ├── pages/
@@ -182,10 +186,63 @@ Refresh feed by fetching from all configured sources.
 Get posts by specific source.
 
 **Parameters:**
-- `source`: Any configured source (e.g., "reddit", "youtube", or future platforms)
+- `source`: Any configured source (e.g., "reddit", "youtube", "tiktok", "x")
 
 **Query Parameters:**
 - `skip`, `limit` (same as `/api/posts`)
+
+## 🎬 VideoPlayer Component
+
+The `VideoPlayer` component provides a unified, platform-aware video playback solution for all supported sources. It automatically detects the content source and renders the appropriate player.
+
+### Supported Platforms
+
+**YouTube**
+- Embedded iframe with full controls
+- Autoplay when video enters viewport (muted by default)
+- Supports full-screen mode
+- Responsive aspect ratio (16:9)
+
+**TikTok**
+- Blockquote embed with automatic script injection
+- Requires TikTok embed script for proper rendering
+- Mobile-optimized layout
+
+**X/Twitter**
+- Twitter embed with dark theme support
+- Shows full tweet with media
+- Requires Twitter's embed script for rendering
+
+**Reddit**
+- Link-based player with click-to-view functionality
+- Shows thumbnail if available
+- Opens post in new tab
+
+**Generic Fallback**
+- Displays thumbnail with overlay button
+- Falls back for unsupported platforms
+- Click to open content in original platform
+
+### Usage Example
+
+```jsx
+import VideoPlayer from './components/VideoPlayer';
+
+function MyComponent() {
+  const post = {
+    source: 'youtube',
+    title: 'Cool Video',
+    url: 'https://youtu.be/dQw4w9WgXcQ',
+  };
+
+  return <VideoPlayer post={post} inView={true} />;
+}
+```
+
+### Props
+
+- `post` (object): Post data with `source`, `title`, `url`, and optional metadata
+- `inView` (boolean): Whether the player is visible in viewport (controls YouTube autoplay)
 
 ## 🔑 YouTube API Setup (Optional but Recommended)
 
