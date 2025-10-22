@@ -1,7 +1,7 @@
 {
-  "name": "epaatshala-server",
+  "name": "edgram-server",
   "version": "1.0.0",
-  "description": "E-Paatshala backend server - Reddit & YouTube social media aggregator",
+  "description": "Edgram backend server - Reddit & YouTube social media aggregator",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

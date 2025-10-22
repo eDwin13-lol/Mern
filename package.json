@@ -1,7 +1,7 @@
 {
-  "name": "epaatshala-mern",
+  "name": "edgram-mern",
   "version": "1.0.0",
-  "description": "E-Paatshala - MERN Stack Social Media Aggregator (Reddit + YouTube Shorts)",
+  "description": "Edgram - MERN Stack Social Media Aggregator (Reddit + YouTube Shorts)",
   "scripts": {
     "install-all": "npm install && cd server && npm install && cd ../client && npm install",
     "dev:server": "cd server && npm run dev",

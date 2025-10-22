@@ -99,7 +99,7 @@ export const Feed = () => {
   return (
     <div className="feed-container">
       <div className="feed-header">
-        <h1>E-Paatshala Feed</h1>
+        <h1>Edgram</h1>
         <button
           className="refresh-btn"
           onClick={handleRefresh}

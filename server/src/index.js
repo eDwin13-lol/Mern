@@ -31,7 +31,7 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`
 ╔════════════════════════════════════════╗
-║     E-Paatshala Server Running         ║
+║     Edgram Server Running              ║
 ║     Port: ${PORT}                           ║
 ║     Env: ${process.env.NODE_ENV || 'development'}                     ║
 ╚════════════════════════════════════════╝

@@ -1,4 +1,4 @@
-# E-Paatshala – MERN Social Media Aggregator
+# Edgram – MERN Social Media Aggregator
 
 A full-stack MERN application that aggregates Reddit posts and YouTube Shorts into a single endless-scrolling feed. Perfect for a semester assignment showcasing modern web development practices.
 

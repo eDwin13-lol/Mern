@@ -1,8 +1,8 @@
-# ✅ E-Paatshala MERN Setup Complete!
+# ✅ Edgram MERN Setup Complete!
 
 ## 📊 Project Summary
 
-Your full-featured **MERN Stack Social Media Aggregator** is ready for the e-paatshala assignment!
+Your full-featured **MERN Stack Social Media Aggregator** is ready for deployment!
 
 ### What's Included
 

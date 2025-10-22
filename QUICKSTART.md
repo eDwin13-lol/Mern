@@ -1,4 +1,4 @@
-# E-Paatshala MERN App – Quick Start
+# Edgram MERN App – Quick Start
 
 Your full MERN stack social media aggregator is ready! Here's how to run it:
 

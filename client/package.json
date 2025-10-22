@@ -1,7 +1,7 @@
 {
-  "name": "epaatshala-client",
+  "name": "edgram-client",
   "version": "1.0.0",
-  "description": "E-Paatshala frontend - React infinite scroll feed",
+  "description": "Edgram frontend - React infinite scroll feed",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
