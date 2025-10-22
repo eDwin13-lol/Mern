@@ -1,10 +1,12 @@
 const Post = require('../models/Post');
 const { fetchRedditPosts } = require('../utils/redditFetcher');
 const { fetchYouTubeShorts } = require('../utils/youtubeFetcher');
+const { fetchTikTokVideos } = require('../utils/tiktokFetcher');
+const { fetchXPosts } = require('../utils/xFetcher');
 
 /**
  * Get paginated feed
- * Query params: skip, limit, source (optional: 'reddit' or 'youtube')
+ * Query params: skip, limit, source (optional: 'reddit', 'youtube', 'tiktok', or 'x')
  */
 async function getFeed(req, res) {
   try {
@@ -13,7 +15,7 @@ async function getFeed(req, res) {
     const limitNum = Math.min(parseInt(limit, 10), 50); // Cap at 50
 
     let query = {};
-    if (source && ['reddit', 'youtube'].includes(source)) {
+    if (source && ['reddit', 'youtube', 'tiktok', 'x'].includes(source)) {
       query.source = source;
     }
 
@@ -48,11 +50,13 @@ async function refreshFeed(req, res) {
   try {
     console.log('Starting feed refresh...');
 
-    // Fetch from sources
-    const redditPosts = await fetchRedditPosts('videos', 25);
-    const youTubePosts = await fetchYouTubeShorts(25);
+    // Fetch from all sources
+    const redditPosts = await fetchRedditPosts('videos', 15);
+    const youTubePosts = await fetchYouTubeShorts(15);
+    const tikTokVideos = await fetchTikTokVideos(15);
+    const xPosts = await fetchXPosts(15);
 
-    const allPosts = [...redditPosts, ...youTubePosts];
+    const allPosts = [...redditPosts, ...youTubePosts, ...tikTokVideos, ...xPosts];
 
     // Insert posts, skipping duplicates
     let inserted = 0;
@@ -66,7 +70,7 @@ async function refreshFeed(req, res) {
 
     res.json({
       success: true,
-      message: `Refresh complete. Inserted ${inserted} new posts.`,
+      message: `Refresh complete. Inserted ${inserted} new posts from Reddit, YouTube, TikTok, and X.`,
       totalFetched: allPosts.length,
       inserted,
     });

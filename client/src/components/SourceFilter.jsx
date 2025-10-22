@@ -22,6 +22,18 @@ export const SourceFilter = ({ onSourceChange, currentSource }) => {
       >
         YouTube
       </button>
+      <button
+        className={`filter-btn ${currentSource === 'tiktok' ? 'active' : ''}`}
+        onClick={() => onSourceChange('tiktok')}
+      >
+        TikTok
+      </button>
+      <button
+        className={`filter-btn ${currentSource === 'x' ? 'active' : ''}`}
+        onClick={() => onSourceChange('x')}
+      >
+        X
+      </button>
     </div>
   );
 };
