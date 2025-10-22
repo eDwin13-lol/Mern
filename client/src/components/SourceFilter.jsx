@@ -34,6 +34,18 @@ export const SourceFilter = ({ onSourceChange, currentSource }) => {
       >
         X
       </button>
+      <button
+        className={`filter-btn ${currentSource === 'twitch' ? 'active' : ''}`}
+        onClick={() => onSourceChange('twitch')}
+      >
+        Twitch
+      </button>
+      <button
+        className={`filter-btn ${currentSource === 'instagram' ? 'active' : ''}`}
+        onClick={() => onSourceChange('instagram')}
+      >
+        Instagram
+      </button>
     </div>
   );
 };

@@ -99,6 +99,42 @@
   font-style: italic;
 }
 
+/* Twitch Player */
+.twitch-player {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  min-height: 500px;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+}
+
+.twitch-player iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(145, 70, 255, 0.2);
+}
+
+/* Instagram Player */
+.instagram-player {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  min-height: 600px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagram-embed-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.instagram-media {
+  background: #FFF !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  max-width: 540px;
+}
+
 /* Fallback Player */
 .fallback-player {
   position: relative;
@@ -206,8 +242,14 @@
   }
 
   .tiktok-player,
-  .x-player {
+  .x-player,
+  .twitch-player {
     min-height: 400px;
+    padding: 15px;
+  }
+
+  .instagram-player {
+    min-height: 500px;
     padding: 15px;
   }
 
@@ -231,8 +273,14 @@
   }
 
   .tiktok-player,
-  .x-player {
+  .x-player,
+  .twitch-player {
     min-height: 350px;
+    padding: 10px;
+  }
+
+  .instagram-player {
+    min-height: 450px;
     padding: 10px;
   }
 

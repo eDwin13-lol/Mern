@@ -92,6 +92,14 @@
   background: #000;
 }
 
+.source-badge.twitch {
+  background: #9146ff;
+}
+
+.source-badge.instagram {
+  background: #e4405f;
+}
+
 .post-stats {
   display: flex;
   gap: 8px;

@@ -3,6 +3,8 @@ const { fetchRedditPosts } = require('../utils/redditFetcher');
 const { fetchYouTubeShorts } = require('../utils/youtubeFetcher');
 const { fetchTikTokVideos } = require('../utils/tiktokFetcher');
 const { fetchXPosts } = require('../utils/xFetcher');
+const { fetchTwitchContent } = require('../utils/twitchFetcher');
+const { fetchInstagramContent } = require('../utils/instagramFetcher');
 
 /**
  * Get paginated feed
@@ -15,7 +17,7 @@ async function getFeed(req, res) {
     const limitNum = Math.min(parseInt(limit, 10), 50); // Cap at 50
 
     let query = {};
-    if (source && ['reddit', 'youtube', 'tiktok', 'x'].includes(source)) {
+    if (source && ['reddit', 'youtube', 'tiktok', 'x', 'twitch', 'instagram'].includes(source)) {
       query.source = source;
     }
 
@@ -51,12 +53,14 @@ async function refreshFeed(req, res) {
     console.log('Starting feed refresh...');
 
     // Fetch from all sources
-    const redditPosts = await fetchRedditPosts('videos', 15);
-    const youTubePosts = await fetchYouTubeShorts(15);
-    const tikTokVideos = await fetchTikTokVideos(15);
-    const xPosts = await fetchXPosts(15);
+    const redditPosts = await fetchRedditPosts('videos', 12);
+    const youTubePosts = await fetchYouTubeShorts(12);
+    const tikTokVideos = await fetchTikTokVideos(12);
+    const xPosts = await fetchXPosts(12);
+    const twitchContent = await fetchTwitchContent(12);
+    const instagramContent = await fetchInstagramContent(12);
 
-    const allPosts = [...redditPosts, ...youTubePosts, ...tikTokVideos, ...xPosts];
+    const allPosts = [...redditPosts, ...youTubePosts, ...tikTokVideos, ...xPosts, ...twitchContent, ...instagramContent];
 
     // Insert posts, skipping duplicates
     let inserted = 0;
@@ -70,7 +74,7 @@ async function refreshFeed(req, res) {
 
     res.json({
       success: true,
-      message: `Refresh complete. Inserted ${inserted} new posts from Reddit, YouTube, TikTok, and X.`,
+      message: `Refresh complete. Inserted ${inserted} new posts from Reddit, YouTube, TikTok, X, Twitch, and Instagram.`,
       totalFetched: allPosts.length,
       inserted,
     });
