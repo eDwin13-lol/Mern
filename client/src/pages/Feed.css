@@ -10,36 +10,36 @@
   align-items: center;
   margin-bottom: 24px;
   padding: 24px;
-  background: #2a2a2a;
+  background: linear-gradient(135deg, #161b22 0%, #1d2128 100%);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid #3a3a3a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid #30363d;
 }
 
 .feed-header h1 {
   margin: 0;
   font-size: 2.5rem;
-  color: white;
+  color: #f0f6fc;
   letter-spacing: -0.5px;
 }
 
 .refresh-btn {
   padding: 12px 24px;
-  background: #0066cc;
-  color: white;
+  background: linear-gradient(135deg, #1f6feb 0%, #188bff 100%);
+  color: #f0f6fc;
   border: none;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(31, 110, 251, 0.3);
 }
 
 .refresh-btn:hover:not(:disabled) {
-  background: #0052a3;
+  background: linear-gradient(135deg, #188bff 0%, #1f6feb 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 16px rgba(31, 110, 251, 0.5);
 }
 
 .refresh-btn:disabled {

@@ -5,41 +5,42 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 16px;
-  background: #2a2a2a;
+  background: linear-gradient(135deg, #161b22 0%, #1d2128 100%);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border: 1px solid #3a3a3a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid #30363d;
 }
 
 .filter-btn {
   padding: 10px 24px;
-  border: 2px solid #404040;
-  background: #333333;
+  border: 2px solid #484f58;
+  background: linear-gradient(135deg, #21262d 0%, #2d333b 100%);
   border-radius: 20px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  color: #c9d1d9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .filter-btn:hover {
   transform: translateY(-3px);
-  border-color: #0066cc;
-  background: #3a3a3a;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: #58a6ff;
+  background: linear-gradient(135deg, #2d333b 0%, #30363d 100%);
+  box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+  color: #58a6ff;
 }
 
 .filter-btn.active {
-  background: #0066cc;
-  color: white;
-  border-color: #0066cc;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
+  background: linear-gradient(135deg, #1f6feb 0%, #188bff 100%);
+  color: #f0f6fc;
+  border-color: #58a6ff;
+  box-shadow: 0 4px 12px rgba(31, 110, 251, 0.5);
   transform: scale(1.05);
 }
 
 .filter-btn.active:hover {
-  background: #0052a3;
-  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.5);
+  background: linear-gradient(135deg, #188bff 0%, #1f6feb 100%);
+  box-shadow: 0 6px 16px rgba(88, 166, 255, 0.5);
 }

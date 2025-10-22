@@ -2,7 +2,7 @@
 .video-player {
   width: 100%;
   height: 100%;
-  background: #1a1a1a;
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -18,12 +18,12 @@
 
 .youtube-player iframe {
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+  box-shadow: 0 4px 15px rgba(31, 110, 251, 0.2);
 }
 
 /* TikTok Player */
 .tiktok-player {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
   min-height: 500px;
   padding: 20px;
 }
@@ -43,7 +43,7 @@
 
 /* X/Twitter Player */
 .x-player {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
   min-height: 400px;
   padding: 20px;
 }
@@ -61,7 +61,7 @@
 
 /* Reddit Player */
 .reddit-player {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
   min-height: 300px;
   padding: 40px 20px;
   display: flex;
@@ -78,7 +78,7 @@
 
 .reddit-link {
   display: inline-block;
-  color: #0066cc;
+  color: #58a6ff;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -88,12 +88,12 @@
 }
 
 .reddit-link:hover {
-  color: #0052a3;
+  color: #79c0ff;
   text-decoration: underline;
 }
 
 .reddit-hint {
-  color: #888;
+  color: #8b949e;
   font-size: 14px;
   margin-top: 8px;
   font-style: italic;
@@ -101,7 +101,7 @@
 
 /* Twitch Player */
 .twitch-player {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
   min-height: 500px;
   aspect-ratio: 16 / 9;
   padding: 0;
@@ -114,7 +114,7 @@
 
 /* Instagram Player */
 .instagram-player {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
   min-height: 600px;
   padding: 20px;
   display: flex;
@@ -138,7 +138,7 @@
 /* Fallback Player */
 .fallback-player {
   position: relative;
-  background: #2a2a2a;
+  background: linear-gradient(135deg, #161b22 0%, #1d2128 100%);
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -164,7 +164,7 @@
 .placeholder-thumbnail {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #21262d 0%, #0d1117 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,7 +173,7 @@
 
 .placeholder-icon {
   font-size: 80px;
-  color: #0066cc;
+  color: #58a6ff;
   opacity: 0.5;
 }
 
@@ -181,15 +181,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 8px;
 }
 
 .fallback-player:hover .fallback-overlay {
@@ -197,8 +197,9 @@
 }
 
 .view-button {
-  background: #0066cc;
-  color: white;
+  display: inline-block;
+  background: linear-gradient(135deg, #1f6feb 0%, #188bff 100%);
+  color: #f0f6fc;
   border: none;
   padding: 12px 24px;
   font-size: 16px;
@@ -207,25 +208,25 @@
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 4px 12px rgba(31, 110, 251, 0.3);
 }
 
 .view-button:hover {
-  background: #0052a3;
+  background: linear-gradient(135deg, #188bff 0%, #1f6feb 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+  box-shadow: 0 6px 16px rgba(31, 110, 251, 0.4);
 }
 
 /* Error State */
 .video-player-error {
   width: 100%;
   height: 100%;
-  background: #2a2a2a;
+  background: linear-gradient(135deg, #161b22 0%, #1d2128 100%);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff6b6b;
+  color: #f85149;
   font-weight: 600;
   text-align: center;
   padding: 20px;
