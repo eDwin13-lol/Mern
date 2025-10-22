@@ -5,39 +5,41 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.95);
+  background: #2a2a2a;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid #3a3a3a;
 }
 
 .filter-btn {
   padding: 10px 24px;
-  border: 2px solid transparent;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  border: 2px solid #404040;
+  background: #333333;
   border-radius: 20px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #333;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .filter-btn:hover {
   transform: translateY(-3px);
-  border-color: #667eea;
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.25);
+  border-color: #0066cc;
+  background: #3a3a3a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #0066cc;
   color: white;
-  border-color: #667eea;
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  border-color: #0066cc;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.4);
   transform: scale(1.05);
 }
 
 .filter-btn.active:hover {
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  background: #0052a3;
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.5);
 }

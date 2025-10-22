@@ -1,7 +1,7 @@
 .post-card {
-  background: white;
+  background: #2a2a2a;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 16px;
   padding: 12px;
   cursor: pointer;
@@ -9,13 +9,14 @@
   display: flex;
   gap: 12px;
   overflow: hidden;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #0066cc;
+  border: 1px solid #3a3a3a;
 }
 
 .post-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.25);
-  border-left-color: #f5576c;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-left-color: #0080ff;
 }
 
 /* Video Embed Container */
@@ -23,18 +24,18 @@
   flex-shrink: 0;
   width: 200px;
   height: 120px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .post-video-embed:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .youtube-embed-container {
@@ -69,7 +70,7 @@
 }
 
 .expand-btn {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #0066cc;
   color: white;
   border: none;
   padding: 10px 16px;
@@ -78,12 +79,13 @@
   font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .expand-btn:hover {
+  background: #0052a3;
   transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(245, 87, 108, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Fullscreen Video */
@@ -133,7 +135,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #0066cc;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -143,22 +145,23 @@
   cursor: pointer;
   transition: all 0.3s;
   z-index: 10000;
-  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .close-fullscreen:hover {
+  background: #0052a3;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 87, 108, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .post-thumbnail {
   flex-shrink: 0;
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .post-thumbnail img {

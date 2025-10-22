@@ -14,13 +14,13 @@ export const SourceFilter = ({ onSourceChange, currentSource }) => {
         className={`filter-btn ${currentSource === 'reddit' ? 'active' : ''}`}
         onClick={() => onSourceChange('reddit')}
       >
-        🔥 Reddit
+        Reddit
       </button>
       <button
         className={`filter-btn ${currentSource === 'youtube' ? 'active' : ''}`}
         onClick={() => onSourceChange('youtube')}
       >
-        ▶ YouTube
+        YouTube
       </button>
     </div>
   );

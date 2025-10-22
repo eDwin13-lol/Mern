@@ -10,22 +10,22 @@
   align-items: center;
   margin-bottom: 24px;
   padding: 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #2a2a2a;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #3a3a3a;
 }
 
 .feed-header h1 {
   margin: 0;
   font-size: 2.5rem;
   color: white;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   letter-spacing: -0.5px;
 }
 
 .refresh-btn {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #0066cc;
   color: white;
   border: none;
   border-radius: 8px;
@@ -33,27 +33,29 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .refresh-btn:hover:not(:disabled) {
+  background: #0052a3;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .refresh-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
+  background: #404040;
 }
 
 .error-message {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  background: #d32f2f;
   color: white;
   padding: 14px 18px;
   border-radius: 8px;
   margin-bottom: 16px;
-  border-left: 4px solid #ff5252;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+  border-left: 4px solid #b71c1c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   font-weight: 500;
 }
 
@@ -66,10 +68,9 @@
 .empty-state {
   text-align: center;
   padding: 80px 20px;
-  color: white;
+  color: #999;
   font-size: 1.2rem;
   font-weight: 500;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .load-more-trigger {
@@ -80,20 +81,19 @@
 .spinner {
   display: inline-block;
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.95);
+  background: #2a2a2a;
   border-radius: 8px;
-  color: #667eea;
+  color: #0066cc;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #3a3a3a;
 }
 
 .end-message {
   text-align: center;
   padding: 40px 20px;
-  color: white;
+  color: #999;
   font-size: 1rem;
   font-weight: 500;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 640px) {

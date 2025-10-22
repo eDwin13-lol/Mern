@@ -86,19 +86,19 @@ export const PostCard = ({ post }) => {
 
         <div className="post-footer">
           <span className={`source-badge ${post.source}`}>
-            {isReddit && '🔥 Reddit'}
-            {isYoutube && '▶ YouTube'}
+            {isReddit && 'Reddit'}
+            {isYoutube && 'YouTube'}
           </span>
 
           <div className="post-stats">
             {isReddit && (
               <span className="stat">
-                👍 {(post.score / 1000).toFixed(1)}k
+                {(post.score / 1000).toFixed(1)}k
               </span>
             )}
             {isYoutube && (
               <span className="stat">
-                👀 {(post.views / 1000).toFixed(1)}k views
+                {(post.views / 1000).toFixed(1)}k views
               </span>
             )}
           </div>
