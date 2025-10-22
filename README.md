@@ -1,16 +1,17 @@
 # Edgram – MERN Social Media Aggregator
 
-A full-stack MERN application that aggregates Reddit posts and YouTube Shorts into a single endless-scrolling feed. Perfect for a semester assignment showcasing modern web development practices.
+A full-stack MERN application that aggregates content from multiple social media platforms into a single endless-scrolling feed. Currently supports Reddit and YouTube Shorts, with extensible architecture for adding more platforms. Perfect for a semester assignment showcasing modern web development practices.
 
 ## 🎯 Features
 
 - **Infinite Scroll**: Seamlessly load more posts as you scroll
-- **Multi-source Feed**: Aggregate Reddit & YouTube Shorts in one place
-- **Source Filtering**: Toggle between Reddit, YouTube, or view all
+- **Multi-source Feed**: Aggregate content from multiple social media platforms in one place
+- **Source Filtering**: Toggle between different sources or view all content
 - **Auto-refresh**: Fetch new content from sources on-demand
 - **Responsive Design**: Mobile-friendly infinite scroll interface
 - **MongoDB Persistence**: Store posts efficiently with duplicate prevention
-- **RESTful API**: Clean API endpoints for the frontend
+- **RESTful API**: Clean, extensible API endpoints for the frontend
+- **Modular Fetcher Architecture**: Easy to add new content sources
 
 ## 🏗️ Tech Stack
 
@@ -165,7 +166,7 @@ Get paginated feed with optional filtering.
 ```
 
 ### `POST /api/posts/refresh`
-Refresh feed by fetching from Reddit & YouTube sources.
+Refresh feed by fetching from all configured sources.
 
 **Response:**
 ```json
@@ -181,7 +182,7 @@ Refresh feed by fetching from Reddit & YouTube sources.
 Get posts by specific source.
 
 **Parameters:**
-- `source`: "reddit" or "youtube"
+- `source`: Any configured source (e.g., "reddit", "youtube", or future platforms)
 
 **Query Parameters:**
 - `skip`, `limit` (same as `/api/posts`)
@@ -233,9 +234,9 @@ db.posts.deleteMany({})    # Clear all (dev only)
 
 1. **Start both servers** (backend on 5000, frontend on 3000)
 2. **Visit http://localhost:3000** in browser
-3. **Click "🔄 Refresh Feed"** to fetch Reddit & YouTube data
+3. **Click "Refresh Feed"** to fetch content from all sources
 4. **Scroll down** to load more posts infinitely
-5. **Filter by source** using buttons: "All Sources", "🔥 Reddit", "▶ YouTube"
+5. **Filter by source** using the source buttons to view content from specific platforms
 
 ## 🐛 Troubleshooting
 
@@ -254,15 +255,76 @@ docker run -d -p 27017:27017 --name mongodb mongo:6.0
 - Check `client/.env` has `REACT_APP_API_URL=http://localhost:5000/api`
 
 **No Posts Appearing:**
-1. Click "🔄 Refresh Feed" to trigger fetchers
-2. Check server console for fetcher logs
-3. For YouTube: ensure `YOUTUBE_API_KEY` is set
+1. Click "Refresh Feed" to trigger content fetchers
+2. Check server console for fetcher logs and any error messages
+3. Ensure all platform API credentials are properly configured (if required)
 
-**YouTube Fetch Not Working:**
-- YouTube requires API key. Add to `server/.env` or set `YOUTUBE_API_KEY=your_key`
-- Get key from [Google Cloud Console](https://console.cloud.google.com/)
+**Content Source Not Working:**
+- Verify platform API credentials in `server/.env`
+- Check server logs for specific error messages from the fetcher
+- Some platforms may have rate limits - wait a moment and retry
 
-## 📚 Learning Resources
+## � Future Scope
+
+Edgram is designed with extensibility in mind. The modular architecture allows seamless integration of additional content platforms. Planned enhancements include:
+
+### Platform Integrations
+- **Twitter/X**: Real-time tweets and trending topics
+- **TikTok**: Short-form video content aggregation
+- **Instagram**: Photo and video feeds
+- **Twitch**: Live stream highlights and VODs
+- **Medium**: Article recommendations
+- **Hacker News**: Tech news and discussions
+- **LinkedIn**: Professional content and updates
+
+### Feature Enhancements
+- **User Accounts**: Personalized feeds and saved content
+- **Recommendations**: AI-powered content suggestions based on user preferences
+- **Trending Analytics**: Show trending topics across all sources
+- **Search Functionality**: Full-text search across all platforms
+- **Notifications**: Real-time alerts for specific keywords or creators
+- **Content Curation**: User-created collections and playlists
+- **Dark/Light Theme Toggle**: User preference persistence
+- **Advanced Filtering**: Filter by date range, engagement metrics, content type
+
+### Technical Improvements
+- **Caching Layer**: Redis integration for faster data retrieval
+- **Pagination Optimization**: Cursor-based pagination for better performance
+- **Rate Limiting**: Smart rate limiting for API calls
+- **Error Recovery**: Automatic retry mechanisms with exponential backoff
+- **Content Deduplication**: Advanced algorithm to prevent duplicate content across sources
+- **Performance Monitoring**: Analytics dashboard for API performance
+- **GraphQL API**: Alternative to REST for flexible queries
+- **WebSocket Support**: Real-time feed updates
+
+### Architecture Enhancements
+- **Plugin System**: Allow community-created fetcher plugins
+- **Source Configuration UI**: Admin panel to enable/disable sources
+- **Custom Parsing**: Flexible content extraction for new platforms
+- **Webhook Support**: Receive updates directly from platforms
+- **Docker Compose**: One-command deployment with all services
+
+### How to Add New Platforms
+
+To extend Edgram with additional platforms, follow this pattern:
+
+1. **Create a new fetcher** in `server/src/utils/` (e.g., `twitterFetcher.js`)
+2. **Implement the fetcher interface**:
+   ```javascript
+   async function fetchData() {
+     // Connect to platform API
+     // Transform data to Post schema
+     // Return array of posts
+   }
+   ```
+3. **Update Post model** if new fields are needed (e.g., platform-specific metadata)
+4. **Register the fetcher** in `postController.js`
+5. **Update frontend filters** to include the new source
+6. **Add configuration** to `.env` for platform API credentials
+
+The modular design ensures minimal changes to core application logic when adding new platforms.
+
+## �📚 Learning Resources
 
 - [Express.js Documentation](https://expressjs.com/)
 - [MongoDB with Mongoose](https://mongoosejs.com/)
@@ -277,4 +339,4 @@ MIT
 
 ---
 
-**Built for E-Paatshala Assignment** – Happy Coding! 🚀
+**Built for E-Paatshala Assignment** – Extensible platform for aggregating content from multiple sources. Happy Coding! 🚀
