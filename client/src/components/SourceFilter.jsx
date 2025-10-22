@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import './SourceFilter.css';
 
 export const SourceFilter = ({ onSourceChange, currentSource }) => {
