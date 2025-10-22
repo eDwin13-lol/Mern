@@ -1,0 +1,102 @@
+.post-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  gap: 16px;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.post-thumbnail {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+}
+
+.post-description {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.post-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  font-size: 0.875rem;
+}
+
+.source-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: white;
+}
+
+.source-badge.reddit {
+  background: #ff4500;
+}
+
+.source-badge.youtube {
+  background: #ff0000;
+}
+
+.post-stats {
+  display: flex;
+  gap: 8px;
+}
+
+.stat {
+  color: #666;
+}
+
+.post-author {
+  color: #999;
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .post-card {
+    flex-direction: column;
+  }
+
+  .post-thumbnail {
+    width: 100%;
+    height: 200px;
+  }
+}
