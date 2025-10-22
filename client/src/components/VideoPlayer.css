@@ -1,0 +1,246 @@
+/* Video Player Container */
+.video-player {
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+/* YouTube Player */
+.youtube-player {
+  aspect-ratio: 16 / 9;
+}
+
+.youtube-player iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+}
+
+/* TikTok Player */
+.tiktok-player {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  min-height: 500px;
+  padding: 20px;
+}
+
+.tiktok-embed-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiktok-embed {
+  width: 100%;
+  max-width: 325px;
+}
+
+/* X/Twitter Player */
+.x-player {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  min-height: 400px;
+  padding: 20px;
+}
+
+.x-embed-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twitter-tweet {
+  max-width: 550px;
+}
+
+/* Reddit Player */
+.reddit-player {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  min-height: 300px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reddit-embed-wrapper {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.reddit-link {
+  display: inline-block;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+  word-break: break-word;
+  transition: color 0.3s ease;
+}
+
+.reddit-link:hover {
+  color: #0052a3;
+  text-decoration: underline;
+}
+
+.reddit-hint {
+  color: #888;
+  font-size: 14px;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Fallback Player */
+.fallback-player {
+  position: relative;
+  background: #2a2a2a;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallback-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fallback-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.placeholder-thumbnail {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  color: #0066cc;
+  opacity: 0.5;
+}
+
+.fallback-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.fallback-player:hover .fallback-overlay {
+  opacity: 1;
+}
+
+.view-button {
+  background: #0066cc;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.view-button:hover {
+  background: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+}
+
+/* Error State */
+.video-player-error {
+  width: 100%;
+  height: 100%;
+  background: #2a2a2a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff6b6b;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-player {
+    min-height: 300px;
+  }
+
+  .youtube-player {
+    aspect-ratio: 16 / 9;
+  }
+
+  .tiktok-player,
+  .x-player {
+    min-height: 400px;
+    padding: 15px;
+  }
+
+  .placeholder-icon {
+    font-size: 50px;
+  }
+
+  .view-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-player {
+    min-height: 250px;
+  }
+
+  .youtube-player {
+    aspect-ratio: 16 / 9;
+  }
+
+  .tiktok-player,
+  .x-player {
+    min-height: 350px;
+    padding: 10px;
+  }
+
+  .tiktok-embed {
+    max-width: 100%;
+  }
+
+  .placeholder-icon {
+    font-size: 40px;
+  }
+}

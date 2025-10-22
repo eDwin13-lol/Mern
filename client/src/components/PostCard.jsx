@@ -1,22 +1,13 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import VideoPlayer from './VideoPlayer';
 import './PostCard.css';
 
 export const PostCard = ({ post }) => {
-  const isReddit = post.source === 'reddit';
-  const isYoutube = post.source === 'youtube';
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: false,
   });
-
-  // Extract YouTube video ID from URL
-  const getYouTubeVideoId = (url) => {
-    const match = url?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
-    return match ? match[1] : null;
-  };
-
-  const youtubeVideoId = isYoutube ? getYouTubeVideoId(post.url) : null;
 
   const handleTitleClick = (e) => {
     e.stopPropagation();
@@ -25,30 +16,10 @@ export const PostCard = ({ post }) => {
 
   return (
     <div className="post-card" ref={ref}>
-      {/* Video Embed Section */}
-      {isYoutube && youtubeVideoId ? (
-        <div className="post-video-embed">
-          <div className="youtube-embed-container">
-            <iframe
-              width="100%"
-              height="100%"
-              src={
-                inView
-                  ? `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=1&modestbranding=1`
-                  : `https://www.youtube.com/embed/${youtubeVideoId}?mute=1&controls=1&modestbranding=1`
-              }
-              title={post.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      ) : post.thumbnail && post.thumbnail !== 'self' ? (
-        <div className="post-thumbnail">
-          <img src={post.thumbnail} alt={post.title} />
-        </div>
-      ) : null}
+      {/* Video Player Section */}
+      <div className="post-video-embed">
+        <VideoPlayer post={post} inView={inView} />
+      </div>
 
       <div className="post-content">
         <h3 className="post-title" onClick={handleTitleClick}>
@@ -61,19 +32,28 @@ export const PostCard = ({ post }) => {
 
         <div className="post-footer">
           <span className={`source-badge ${post.source}`}>
-            {isReddit && 'Reddit'}
-            {isYoutube && 'YouTube'}
+            {post.source.charAt(0).toUpperCase() + post.source.slice(1)}
           </span>
 
           <div className="post-stats">
-            {isReddit && (
-              <span className="stat">
-                {(post.score / 1000).toFixed(1)}k
-              </span>
-            )}
-            {isYoutube && (
+            {post.views && (
               <span className="stat">
                 {(post.views / 1000).toFixed(1)}k views
+              </span>
+            )}
+            {post.score && (
+              <span className="stat">
+                {(post.score / 1000).toFixed(1)}k score
+              </span>
+            )}
+            {post.likes && (
+              <span className="stat">
+                {(post.likes / 1000).toFixed(1)}k likes
+              </span>
+            )}
+            {post.comments && (
+              <span className="stat">
+                {(post.comments / 1000).toFixed(1)}k comments
               </span>
             )}
           </div>
